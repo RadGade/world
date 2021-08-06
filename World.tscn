@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://Camera.gd" type="Script" id=2]
+[ext_resource path="res://grass_triangle.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://grass.gd" type="Script" id=4]
+
+[sub_resource type="MultiMesh" id=1]
+transform_format = 1
+custom_data_format = 1
+mesh = ExtResource( 3 )
 
 [node name="World" type="Spatial"]
 script = ExtResource( 1 )
@@ -10,4 +17,45 @@ script = ExtResource( 1 )
 transform = Transform( 1, 0, 0, 0, 0.743437, 0.668806, 0, -0.668806, 0.743437, -2.86698, 37.3011, 46.249 )
 script = ExtResource( 2 )
 
-[node name="MultiMeshInstance" type="MultiMeshInstance" parent="."]
+[node name="grass" type="MultiMeshInstance" parent="."]
+multimesh = SubResource( 1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_editor_description_": "
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"
+}
