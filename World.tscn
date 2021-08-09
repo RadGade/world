@@ -2,6 +2,13 @@
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://Camera.gd" type="Script" id=2]
+[ext_resource path="res://grass_triangle.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://grass.gd" type="Script" id=4]
+
+[sub_resource type="MultiMesh" id=1]
+transform_format = 1
+custom_data_format = 1
+mesh = ExtResource( 3 )
 
 [sub_resource type="CapsuleMesh" id=1]
 
@@ -57,6 +64,51 @@ transform = Transform( 1, 0, 0, 0, 0.743437, 0.668806, 0, -0.668806, 0.743437, -
 far = 8192.0
 script = ExtResource( 2 )
 
+<<<<<<< HEAD
 [node name="MeshInstance" type="MeshInstance" parent="."]
 mesh = SubResource( 1 )
 material/0 = SubResource( 3 )
+=======
+[node name="grass" type="MultiMeshInstance" parent="."]
+multimesh = SubResource( 1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_editor_description_": "
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"
+}
+>>>>>>> 32fcd6653c255e48e971cca0cd1201ac635dfc2a
