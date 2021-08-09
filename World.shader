@@ -11,16 +11,27 @@ uniform vec3 uv1_offset;
 uniform vec3 uv2_scale;
 uniform vec3 uv2_offset;
 
+uniform vec4 sandColor : hint_color = vec4(0.9,0.9, 0.6, 1.0);
+uniform vec4 grassColor :hint_color = vec4(0.5, 1.0, 0.3, 1.6);
+
 varying flat vec3 out_color; 
 
-vec3 lerpColor()
+vec3 lerpColor(vec4 a, vec4 b, float t){
+	float rr = a.r + (b.r - a.r) * t;
+	float gg = a.g + (b.g - a.g) * t;
+	float bb = a.b + (b.b - a.b) * t;
+	return vec3(rr, gg, bb);
+}
 
 void vertex() {
 	UV=UV*uv1_scale.xy+uv1_offset.xy;
+	
+	out_color = vec3(sandColor.r, sandColor.g, sandColor.b);
+	
+	if(VERTEX.y > 0.0){
+		out_color = lerpColor(sandColor, grassColor, clamp((VERTEX.y)/3.0, 0.0, 1.0));
+	}
 }
-
-
-
 
 void fragment() {
 	vec2 base_uv = UV;
